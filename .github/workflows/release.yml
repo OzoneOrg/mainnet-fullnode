@@ -9,10 +9,12 @@ jobs:
   release:
     name: Create Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python (to use tar command)
         uses: actions/setup-python@v2
@@ -23,19 +25,6 @@ jobs:
         run: |
           tar -czf release.tar.gz *
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
+      - uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release.tar.gz
-          asset_name: release.tar.gz
-          asset_content_type: application/gzip
+          artifacts: "release.tar.gz"
