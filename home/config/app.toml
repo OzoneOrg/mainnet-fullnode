@@ -1,0 +1,120 @@
+minimum-gas-prices = "0.02utlp"
+pruning = "nothing"
+pruning-keep-recent = "0"
+pruning-keep-every = "0"
+pruning-interval = "3917"
+halt-height = 0
+halt-time = 0
+min-retain-blocks = 0
+inter-block-cache = true
+index-events = []
+iavl-cache-size = 781250
+iavl-disable-fastnode = true
+compaction-interval = 0
+no-versioning = false
+separate-orphan-storage = false
+separate-orphan-versions-to-keep = 0
+num-orphan-per-file = 0
+orphan-dir = ""
+occ-enabled = true
+concurrency-workers = 500
+
+[telemetry]
+service-name = ""
+enabled = true
+enable-hostname = false
+enable-hostname-label = false
+enable-service-label = false
+prometheus-retention-time = 60
+global-labels = []
+
+[api]
+enable = true
+swagger = true
+address = "tcp://0.0.0.0:1317"
+max-open-connections = 1000
+rpc-read-timeout = 10
+rpc-write-timeout = 0
+rpc-max-body-bytes = 1000000
+enabled-unsafe-cors = false
+
+[rosetta]
+enable = false
+address = ":8080"
+blockchain = "app"
+network = "network"
+retries = 3
+offline = false
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[grpc-web]
+enable = true
+address = "0.0.0.0:9091"
+enable-unsafe-cors = false
+
+[state-sync]
+snapshot-interval = 0
+snapshot-keep-recent = 2
+snapshot-directory = ""
+
+[state-commit]
+sc-enable = true
+sc-directory = ""
+sc-zero-copy = false
+sc-async-commit-buffer = 100
+sc-keep-recent = 1
+sc-snapshot-interval = 10000
+sc-snapshot-writer-limit = 0
+
+[state-store]
+ss-enable = true
+ss-db-directory = ""
+ss-backend = "pebbledb"
+ss-async-write-buffer = 100
+ss-keep-recent = 100000
+ss-prune-interval = 600
+ss-import-num-workers = 1
+
+[wasm]
+query_gas_limit = 300000
+lru_size = 0
+
+[evm]
+http_enabled = true
+http_port = 8545
+ws_enabled = true
+ws_port = 8546
+read_timeout = "30s"
+read_header_timeout = "30s"
+write_timeout = "30s"
+idle_timeout = "2m0s"
+simulation_gas_limit = 10000000
+simulation_evm_timeout = "1m0s"
+cors_origins = "*"
+ws_origins = "*"
+filter_timeout = "2m0s"
+checktx_timeout = "5s"
+slow = false
+deny_list = []
+max_log_no_block = 10000
+max_blocks_for_log = 2000
+max_subscriptions_new_head = 10000
+
+[eth_replay]
+eth_replay_enabled = false
+eth_rpc = "http://44.234.105.54:18545"
+eth_data_dir = "/root/.ethereum/chaindata"
+eth_replay_contract_state_checks = false
+
+[eth_blocktest]
+eth_blocktest_enabled = false
+eth_blocktest_test_data_path = "~/testdata/"
+
+[evm_query]
+evm_query_gas_limit = 300000
+
+[light_invariance]
+supply_enabled = true

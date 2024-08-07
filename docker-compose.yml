@@ -1,0 +1,14 @@
+services:
+  tlchain:
+    image: tlchain:latest
+    container_name: tlchain
+    hostname: tlchain
+    volumes:
+      - ./home:/app/home
+    restart: always
+    ports:
+      - "127.0.0.1:1317:1317"
+      - "127.0.0.1:8546:8546"
+      - "127.0.0.1:8545:8545"
+      - "127.0.0.1:26657:26657"
+      - "0.0.0.0:26656:26656"
